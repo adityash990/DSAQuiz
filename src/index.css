@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-black text-white;
+  }
+}
+
+@layer utilities {
+  .glass-bw {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .gradient-text-bw {
+    @apply bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent;
+  }
+  
+  .gradient-border-bw {
+    background: linear-gradient(45deg, #ffffff 0%, #666666 50%, #ffffff 100%);
+    padding: 2px;
+    border-radius: 12px;
+  }
+  
+  .floating {
+    animation: floating 4s ease-in-out infinite;
+  }
+  
+  .pulse-glow-bw {
+    animation: pulse-glow-bw 3s ease-in-out infinite alternate;
+  }
+  
+  .slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+  
+  .scale-in {
+    animation: scale-in 0.6s ease-out;
+  }
+
+  .typewriter {
+    animation: typewriter 2s steps(40) 1s forwards;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+  }
+
+  .matrix-rain {
+    animation: matrix-rain 20s linear infinite;
+  }
+
+  .neural-network {
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
+      radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 1px, transparent 1px),
+      radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px, 80px 80px, 100px 100px;
+    animation: neural-pulse 8s ease-in-out infinite;
+  }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+  75% { transform: translateY(-20px) rotate(0.5deg); }
+}
+
+@keyframes pulse-glow-bw {
+  0% { 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  100% { 
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes neural-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.neon-glow-bw {
+  box-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 15px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.card-hover-bw {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-bw:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 
+    0 25px 50px -12px rgba(255, 255, 255, 0.1),
+    0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.shimmer-bw {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer-bw 3s infinite;
+}
+
+@keyframes shimmer-bw {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.code-block {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid #404040;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sql-highlight {
+  color: #61dafb;
+}
+
+.python-highlight {
+  color: #ffd43b;
+}
+
+.cpp-highlight {
+  color: #00599c;
+}
